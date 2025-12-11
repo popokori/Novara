@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVARA SARL | Production Premium de Pastèques en Mauritanie</title>
+    <meta name="description" content="NOVARA SARL - Leader de la production et exportation de pastèques premium en Mauritanie. Agriculture durable, énergie solaire, qualité certifiée.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --novara-green: #1B4D3E;
+            --novara-green-light: #2E7D32;
+            --novara-green-dark: #0D2820;
+            --watermelon-red: #E53935;
+            --watermelon-pink: #FF6B6B;
+            --sand: #F5E6D3;
+            --sand-light: #FDF8F3;
+            --sand-dark: #D4C4B0;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--sand-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Decorative Elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(27, 77, 62, 0.98);
+            padding: 0.75rem 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--novara-green);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--novara-green-dark) !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 30px;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--novara-green-dark) 0%, var(--novara-green) 50%, var(--novara-green-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(229, 57, 53, 0.1) 0%, transparent 60%);
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--novara-green-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--novara-green);
+            border-color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+        }
+
+        .hero-watermelon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #4CAF50 0%, #2E7D32 30%, #1B5E20 70%, #0D3B1E 100%);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.4),
+                inset 0 -20px 40px rgba(0,0,0,0.3),
+                inset 0 20px 40px rgba(255,255,255,0.1);
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-20px); }
+        }
+
+        .hero-watermelon::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            width: 20%;
+            height: 30%;
+            background: linear-gradient(145deg, rgba(255,255,255,0.4), transparent);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .watermelon-stripe {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0,50,0,0.4), transparent);
+            transform-origin: center center;
+        }
+
+        .watermelon-stripe:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
+        .watermelon-stripe:nth-child(2) { transform: translateX(-50%) rotate(30deg); }
+        .watermelon-stripe:nth-child(3) { transform: translateX(-50%) rotate(60deg); }
+        .watermelon-stripe:nth-child(4) { transform: translateX(-50%) rotate(90deg); }
+        .watermelon-stripe:nth-child(5) { transform: translateX(-50%) rotate(120deg); }
+        .watermelon-stripe:nth-child(6) { transform: translateX(-50%) rotate(150deg); }
+
+        .hero-stats {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 1.5rem;
+            border-right: 1px solid var(--sand-dark);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--novara-green);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator .mouse {
+            width: 25px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 20px; }
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 5%;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231B4D3E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--sand);
+            color: var(--novara-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--novara-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-main::before {
+            content: '🍉';
+            font-size: 8rem;
+            opacity: 0.8;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--novara-green);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(27, 77, 62, 0.3);
+        }
+
+        .about-badge .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .about-badge .text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--novara-green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem;
+            background: var(--sand-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .about-feature:hover {
+            background: var(--sand);
+            transform: translateX(10px);
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--novara-green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .about-feature span {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 5%;
+            background: linear-gradient(180deg, var(--sand-light) 0%, var(--sand) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--novara-green), var(--novara-green-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--novara-green) 0%, var(--novara-green-light) 100%);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--novara-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 5%;
+            background: var(--novara-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-card .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .unit {
+            font-size: 1.5rem;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 30%, rgba(27, 77, 62, 0.95) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-card:hover::before {
+            background: linear-gradient(180deg, transparent 0%, rgba(27, 77, 62, 0.98) 100%);
+        }
+
+        .product-emoji {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            font-size: 6rem;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-emoji {
+            transform: translate(-50%, -70%) scale(1.2);
+        }
+
+        .product-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--novara-green-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-content p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            padding: 120px 5%;
+            background: var(--sand-light);
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sustainability-content h3 {
+            font-size: 2.2rem;
+            color: var(--novara-green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .sustainability-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .eco-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .eco-feature {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .eco-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            flex-shrink: 0;
+        }
+
+        .eco-text h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--novara-green-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .eco-text p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .sustainability-visual {
+            position: relative;
+        }
+
+        .solar-panel-visual {
+            background: linear-gradient(135deg, var(--novara-green) 0%, var(--novara-green-dark) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solar-panel-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
+        }
+
+        .solar-panel-visual .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .solar-panel-visual h4 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .solar-panel-visual p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+        }
+
+        .solar-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .solar-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .solar-stat .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .solar-stat .label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--novara-green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--sand);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text strong {
+            display: block;
+            color: var(--novara-green-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-text span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--sand-light);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .contact-form h4 {
+            font-size: 1.5rem;
+            color: var(--novara-green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--sand-dark);
+            border-radius: 12px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--novara-green);
+            box-shadow: 0 0 0 4px rgba(27, 77, 62, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--novara-green);
+            color: var(--white);
+            padding: 1.25rem;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--novara-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(27, 77, 62, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--novara-green-dark);
+            color: var(--white);
+            padding: 80px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--novara-green-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column ul a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-column ul a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 2rem;
+                justify-content: center;
+            }
+
+            .about-grid,
+            .sustainability-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card .number {
+                font-size: 2.5rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image-container {
+                padding-top: 80%;
+            }
+        }
+
+        /* Animations on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">N</div>
+            <span class="logo-text">NOVARA</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#products">Produits</a></li>
+            <li><a href="#sustainability">Durabilité</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span>🌱 Agriculture Durable</span>
+                </div>
+                <h1>L'Excellence de la <span class="highlight">Pastèque</span> Mauritanienne</h1>
+                <p>NOVARA SARL révolutionne la production agricole en Mauritanie avec des technologies durables et une qualité premium destinée aux marchés locaux et internationaux.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Nous Contacter</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">Découvrir</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-watermelon">
+                        <div class="watermelon-stripe"></div>
+                        <div class="watermelon-stripe"></div>
+                        <div class="watermelon-stripe"></div>
+                        <div class="watermelon-stripe"></div>
+                        <div class="watermelon-stripe"></div>
+                        <div class="watermelon-stripe"></div>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Hectares</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6000</span>
+                        <span class="stat-label">Tonnes/An</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Solaire</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>SCROLL</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Notre Histoire</span>
+                <h2 class="section-title">Pionniers de l'Agriculture Moderne en Mauritanie</h2>
+                <p class="section-subtitle">Une vision ambitieuse portée par une équipe expérimentée et des technologies de pointe.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <div class="about-image-main"></div>
+                    <div class="about-badge">
+                        <span class="number">99</span>
+                        <span class="text">ans d'engagement</span>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Une Agriculture d'Excellence au Cœur du Sahel</h3>
+                    <p>Fondée en 2025, NOVARA SARL incarne une nouvelle ère de l'agriculture mauritanienne. Notre exploitation de 24 hectares, située à 45 km de Nouakchott, combine les techniques agricoles les plus avancées avec un engagement profond envers la durabilité environnementale.</p>
+                    <p>Grâce à notre système d'irrigation solaire innovant et nos infrastructures de stockage frigorifique, nous garantissons une production continue de pastèques premium tout au long de l'année.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🎯</div>
+                            <span>Certification GlobalGAP</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🌍</div>
+                            <span>Export International</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">☀️</div>
+                            <span>Énergie 100% Solaire</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">❄️</div>
+                            <span>Stockage 5000 Tonnes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Nos Services</span>
+                <h2 class="section-title">Solutions Complètes de la Ferme à l'Assiette</h2>
+                <p class="section-subtitle">Un accompagnement intégral pour répondre aux besoins des marchés les plus exigeants.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌱</div>
+                    <h3>Production Premium</h3>
+                    <p>Culture de pastèques de haute qualité utilisant les meilleures variétés : Crimson Sweet, Sugar Baby et sans pépins. Rendements optimisés grâce à l'irrigation goutte-à-goutte.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📦</div>
+                    <h3>Conditionnement</h3>
+                    <p>Centre de conditionnement moderne de 5000 m² avec ligne de tri optique, calibrage automatique et emballage personnalisé selon les exigences clients.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">❄️</div>
+                    <h3>Stockage Frigorifique</h3>
+                    <p>Capacité de stockage de 5000 tonnes dans 6 chambres froides à température contrôlée, garantissant la fraîcheur et la qualité optimale du produit.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚚</div>
+                    <h3>Logistique Intégrée</h3>
+                    <p>Flotte de transport frigorifique dédiée pour une livraison rapide et fiable. Réseau de distribution national et international.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌍</div>
+                    <h3>Export International</h3>
+                    <p>Expertise en export vers l'Afrique de l'Ouest et l'Europe. Respect des normes phytosanitaires et certifications requises pour l'accès aux marchés premium.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤝</div>
+                    <h3>Partenariats B2B</h3>
+                    <p>Contrats d'approvisionnement sur mesure pour grossistes, supermarchés, industries agroalimentaires et chaînes de restauration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="section-container">
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <span class="number">60<span class="unit">M€</span></span>
+                    <span class="label">Investissement Total</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="number">500<span class="unit">kWc</span></span>
+                    <span class="label">Puissance Solaire</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="number">450<span class="unit">+</span></span>
+                    <span class="label">Emplois Créés</span>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="number">18.7<span class="unit">%</span></span>
+                    <span class="label">Rentabilité (TRI)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Nos Produits</span>
+                <h2 class="section-title">Variétés Sélectionnées pour l'Excellence</h2>
+                <p class="section-subtitle">Des pastèques cultivées avec passion pour satisfaire tous les palais.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <span class="product-emoji">🍉</span>
+                    <div class="product-content">
+                        <span class="product-tag">60% Production</span>
+                        <h3>Crimson Sweet</h3>
+                        <p>Notre variété phare. Poids de 8-12 kg, taux de sucre 12-14° Brix. Chair rouge profonde, texture croquante. Idéale pour le marché local et africain.</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <span class="product-emoji">🍈</span>
+                    <div class="product-content">
+                        <span class="product-tag">25% Production</span>
+                        <h3>Sugar Baby</h3>
+                        <p>Format compact de 3-5 kg, parfait pour les ménages modernes. Écorce fine vert foncé, chair très sucrée. Prisée par les supermarchés et l'export Europe.</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <span class="product-emoji">✨</span>
+                    <div class="product-content">
+                        <span class="product-tag">Premium Bio</span>
+                        <h3>Sans Pépins</h3>
+                        <p>Notre gamme premium pour le marché européen. Certification Bio en cours. Confort de consommation maximal, qualité exceptionnelle garantie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="sustainability">
+        <div class="section-container">
+            <div class="sustainability-grid">
+                <div class="sustainability-content fade-in">
+                    <span class="section-tag">Durabilité</span>
+                    <h3>L'Agriculture de Demain, Aujourd'hui</h3>
+                    <p>Chez NOVARA, nous croyons que performance économique et responsabilité environnementale vont de pair. Notre ferme est conçue pour minimiser notre empreinte écologique tout en maximisant la qualité de notre production.</p>
+                    <div class="eco-features">
+                        <div class="eco-feature">
+                            <div class="eco-icon">☀️</div>
+                            <div class="eco-text">
+                                <h4>Énergie Solaire</h4>
+                                <p>Centrale photovoltaïque de 500 kWc alimentant l'intégralité de nos opérations.</p>
+                            </div>
+                        </div>
+                        <div class="eco-feature">
+                            <div class="eco-icon">💧</div>
+                            <div class="eco-text">
+                                <h4>Irrigation Économe</h4>
+                                <p>Système goutte-à-goutte avec 90% d'efficacité, réduisant la consommation d'eau de 40%.</p>
+                            </div>
+                        </div>
+                        <div class="eco-feature">
+                            <div class="eco-icon">🌿</div>
+                            <div class="eco-text">
+                                <h4>Agriculture Raisonnée</h4>
+                                <p>Rotation des cultures, lutte intégrée et utilisation minimale d'intrants chimiques.</p>
+                            </div>
+                        </div>
+                        <div class="eco-feature">
+                            <div class="eco-icon">♻️</div>
+                            <div class="eco-text">
+                                <h4>Zéro Déchet</h4>
+                                <p>Valorisation des déchets organiques en compost pour enrichir naturellement nos sols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sustainability-visual fade-in">
+                    <div class="solar-panel-visual">
+                        <span class="icon">⚡</span>
+                        <h4>Autonomie Énergétique</h4>
+                        <p>Une ferme 100% alimentée par le soleil du Sahara</p>
+                        <div class="solar-stats">
+                            <div class="solar-stat">
+                                <span class="value">850K</span>
+                                <span class="label">kWh/an produits</span>
+                            </div>
+                            <div class="solar-stat">
+                                <span class="value">70%</span>
+                                <span class="label">Économie énergie</span>
+                            </div>
+                            <div class="solar-stat">
+                                <span class="value">25</span>
+                                <span class="label">Ans durée vie</span>
+                            </div>
+                            <div class="solar-stat">
+                                <span class="value">0</span>
+                                <span class="label">Émissions CO₂</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Parlons de Votre Projet</h2>
+                <p class="section-subtitle">Notre équipe est à votre disposition pour répondre à vos questions et étudier vos besoins.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Restons en Contact</h3>
+                    <p>Que vous soyez grossiste, distributeur, ou simplement curieux d'en savoir plus sur notre projet agricole innovant, n'hésitez pas à nous contacter.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <strong>Siège Social</strong>
+                                <span>NEJAH N° 0963, Tevragh Zeina<br>Nouakchott, Mauritanie</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <strong>Téléphone</strong>
+                                <span>+222 XX XX XX XX</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                <span>contact@novara.mr</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div class="contact-text">
+                                <strong>Horaires</strong>
+                                <span>Lundi - Vendredi : 8h00 - 17h00<br>Samedi : 8h00 - 12h00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h4>Envoyez-nous un Message</h4>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom Complet *</label>
+                                <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Société</label>
+                                <input type="text" id="company" name="company" placeholder="Nom de votre entreprise">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+222 XX XX XX XX">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="partnership">Partenariat Commercial</option>
+                                <option value="order">Demande de Devis</option>
+                                <option value="visit">Visite de l'Exploitation</option>
+                                <option value="investment">Opportunités d'Investissement</option>
+                                <option value="other">Autre Demande</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Décrivez votre demande..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Envoyer le Message
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle; margin-left: 8px;">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <span class="logo-text">NOVARA</span>
+                    </a>
+                    <p>NOVARA SARL est une entreprise agricole mauritanienne spécialisée dans la production et l'exportation de pastèques premium. Notre engagement : qualité, durabilité et excellence.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                        <a href="#" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Produits</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Production</a></li>
+                        <li><a href="#">Conditionnement</a></li>
+                        <li><a href="#">Stockage</a></li>
+                        <li><a href="#">Export</a></li>
+                        <li><a href="#">Partenariats</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions Légales</a></li>
+                        <li><a href="#">Politique de Confidentialité</a></li>
+                        <li><a href="#">CGV</a></li>
+                        <li><a href="#">Certifications</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 NOVARA SARL. Tous droits réservés. RC: XXXXXXX - NIF: XXXXXXX</p>
+                <div class="footer-legal">
+                    <a href="#">Politique de Cookies</a>
+                    <a href="#">Plan du Site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Counter animation for stats
+        const animateCounter = (element, target, suffix = '') => {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 30);
+        };
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('Merci pour votre message ! Notre équipe vous contactera dans les plus brefs délais.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
